@@ -10,7 +10,7 @@ Editors create a **Debunk Post**, which includes:
 - justification explaining the reasoning,
 - tags (e.g. Politics, Health, Science) for easy filtering.
 
-Existing posts are displayed on the **Main Page**. Users can **upvote** posts they find useful
+Existing posts are displayed on the **Main Page**. Users can **upvote** posts they find useful.
 
 Users can apply to become **Editors** by submitting their CV through the platform and specifying their fields of expertise.
 Upon approval, they receive permission to publish posts.
