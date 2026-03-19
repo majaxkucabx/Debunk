@@ -9,6 +9,7 @@ Editors create a **Debunk Post**, which includes:
 - verdict (True / False),
 - justification explaining the reasoning,
 - tags (e.g. Politics, Health, Science) for easy filtering.
+
 Existing posts are displayed on the **Main Page**. Users can **upvote** posts they find useful
 
 Users can apply to become **Editors** by submitting their CV through the platform and specifying their fields of expertise.
@@ -68,6 +69,7 @@ npm run dev
 ```
 
 4. Access the application:
+
 Open the link displayed in your terminal.
 
 
