@@ -20,25 +20,24 @@
 }
 
 .nav-link-custom {
-  color: white;             
-  text-decoration: none;    
-  font-size: 0.95rem;      
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
   font-weight: 500;
-  transition: all 0.2s;     
+  transition: all 0.2s;
 }
 
 .nav-link-custom:hover {
-  color: #f8f9fa;           
-  text-decoration: underline; 
+  color: #f8f9fa;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-/* Wspólny styl dla przycisków w tabeli kont */
 .custom-admin-btn {
-  background-color: #000;      /* Czarne tło */
-  color: #fff;                 /* Biały tekst */
-  border: 1px solid #000;      /* Czarne obramowanie */
-  border-radius: 0;            /* Brak zaokrągleń - ostre rogi */
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  border-radius: 0;
   padding: 4px 12px;
   font-size: 0.75rem;
   font-weight: 600;
@@ -47,17 +46,15 @@
   cursor: pointer;
 }
 
-/* Efekt po najechaniu dla aktywnego przycisku */
 .custom-admin-btn:hover:not(:disabled) {
-  background-color: #333;      /* Ciemnoszary przy hoverze */
+  background-color: #333;
   border-color: #333;
 }
 
-/* KLUCZOWY STYL: Przycisk wyłączony (Disabled) */
 .custom-admin-btn:disabled {
-  background-color: transparent; /* Przezroczyste tło */
-  color: #ccc;                 /* Jasnoszary tekst */
-  border-color: #eee;          /* Bardzo jasne obramowanie */
-  opacity: 0.5;                /* Efekt wyblaknięcia (faded) */
-  cursor: not-allowed;         /* Kursor "zakazu" */
+  background-color: transparent;
+  color: #ccc;
+  border-color: #eee;
+  opacity: 0.5;
+  cursor: not-allowed;
 }

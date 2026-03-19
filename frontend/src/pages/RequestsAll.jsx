@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { getAllOpenRequests, getClosedRequests } from "../api";
 import useCurrentUser from "../components/useCurrentUser.jsx";
 
-// FUNKCJE POMOCNICZE - Muszą być w pliku
 function toInt(val) {
   if (val === null || val === undefined) return null;
   if (typeof val === "number") return Number.isFinite(val) ? val : null;
@@ -114,7 +113,7 @@ export default function RequestsAll() {
       <div className="mb-4">
         <h4 className="fw-bold text-uppercase mb-1">Wszystkie (admin)</h4>
         <div className="text-muted small mb-4">Wyświetlasz {filtered.length} / {items.length}</div>
-        
+
         <div className="d-flex flex-column gap-3">
           <div className="d-flex gap-4 flex-wrap">
             <div>
@@ -142,47 +141,46 @@ export default function RequestsAll() {
           <div className="d-flex gap-3 flex-wrap">
             <div style={{ width: "200px" }}>
               <label className="form-label mb-1 small text-muted text-uppercase fw-bold">ID zgłaszającego</label>
-              <input 
-                className="form-control form-control-sm border-secondary-subtle bg-body-secondary" 
+              <input
+                className="form-control form-control-sm border-secondary-subtle bg-body-secondary"
                 style={{ "--bs-bg-opacity": ".5" }}
-                value={reporterId} 
-                onChange={(e) => setReporterId(e.target.value)} 
-                placeholder="np. 12" 
+                value={reporterId}
+                onChange={(e) => setReporterId(e.target.value)}
+                placeholder="np. 12"
               />
             </div>
             <div style={{ width: "200px" }}>
               <label className="form-label mb-1 small text-muted text-uppercase fw-bold">ID redaktora</label>
-              <input 
-                className="form-control form-control-sm border-secondary-subtle bg-body-secondary" 
+              <input
+                className="form-control form-control-sm border-secondary-subtle bg-body-secondary"
                 style={{ "--bs-bg-opacity": ".5" }}
-                value={editorId} 
-                onChange={(e) => setEditorId(e.target.value)} 
-                placeholder="np. 7" 
+                value={editorId}
+                onChange={(e) => setEditorId(e.target.value)}
+                placeholder="np. 7"
               />
             </div>
           </div>
 
           <div className="d-flex justify-content-end gap-2 mt-2">
-  <button 
-    className="btn btn-sm btn-outline-secondary text-uppercase fw-bold px-3" 
-    onClick={() => { 
-      // ZMIANA: Dodano reset statusu na "open" (lub "all", zależnie od preferencji)
-      setStatusMode("open"); 
-      setAssignMode("all"); 
-      setReporterId(""); 
-      setEditorId(""); 
-    }}
-  >
-    WYCZYŚĆ FILTRY
-  </button>
-  <button 
-    className="btn btn-sm btn-outline-dark text-uppercase fw-bold px-3" 
-    onClick={() => load(statusMode)} 
-    disabled={loading}
-  >
-    ODŚWIEŻ
-  </button>
-</div>
+            <button
+              className="btn btn-sm btn-outline-secondary text-uppercase fw-bold px-3"
+              onClick={() => {
+                setStatusMode("open");
+                setAssignMode("all");
+                setReporterId("");
+                setEditorId("");
+              }}
+            >
+              WYCZYŚĆ FILTRY
+            </button>
+            <button
+              className="btn btn-sm btn-outline-dark text-uppercase fw-bold px-3"
+              onClick={() => load(statusMode)}
+              disabled={loading}
+            >
+              ODŚWIEŻ
+            </button>
+          </div>
         </div>
       </div>
 
@@ -219,10 +217,10 @@ export default function RequestsAll() {
           </div>
         ))}
       </div>
-      
+
       {!loading && filtered.length > 5 && (
         <div className="text-center py-4">
-          <button className="btn btn-link text-muted small text-decoration-none" onClick={() => window.scrollTo(0,0)}>Wróć do góry</button>
+          <button className="btn btn-link text-muted small text-decoration-none" onClick={() => window.scrollTo(0, 0)}>Wróć do góry</button>
         </div>
       )}
     </div>

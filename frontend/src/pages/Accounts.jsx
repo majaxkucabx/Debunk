@@ -19,7 +19,7 @@ export default function Accounts() {
       const res = await api.get("/api/users/");
       setUsers(res.data || []);
     } catch (e) {
-      setError("Nie udało się pobrać listy użytkowników (sprawdź uprawnienia / token).");
+      setError("Nie udało się pobrać listy użytkowników (sprawdź uprawnienia/token).");
     } finally {
       setLoading(false);
     }
@@ -75,40 +75,40 @@ export default function Accounts() {
             </thead>
             <tbody>
               {users
-                .filter((u) => u.id !== user?.id) 
+                .filter((u) => u.id !== user?.id)
                 .map((u) => {
                   const role = u?.profile?.user_type || "(brak)";
                   const isBusy = busyId === u.id;
 
-                return (
-                  <tr key={u.id}>
-                    <td>{u.id}</td>
-                    <td className="fw-semibold">{u.username}</td>
-                    <td>{role}</td>
-                    <td>
-                      <div className="d-flex gap-2 flex-wrap">
-                        <button
-                          className="custom-admin-btn" // Nowa klasa
-                          disabled={isBusy || role === ROLE_REDACTOR}
-                          onClick={() => setRole(u.id, ROLE_REDACTOR)}
-                        >
-                          Ustaw redaktora
-                        </button>
+                  return (
+                    <tr key={u.id}>
+                      <td>{u.id}</td>
+                      <td className="fw-semibold">{u.username}</td>
+                      <td>{role}</td>
+                      <td>
+                        <div className="d-flex gap-2 flex-wrap">
+                          <button
+                            className="custom-admin-btn" // Nowa klasa
+                            disabled={isBusy || role === ROLE_REDACTOR}
+                            onClick={() => setRole(u.id, ROLE_REDACTOR)}
+                          >
+                            Ustaw redaktora
+                          </button>
 
-                        <button
-                          className="custom-admin-btn" // Ta sama klasa dla obu
-                          disabled={isBusy || role === ROLE_STANDARD}
-                          onClick={() => setRole(u.id, ROLE_STANDARD)}
-                        >
-                          Ustaw użytkownika
-                        </button>
+                          <button
+                            className="custom-admin-btn" // Ta sama klasa dla obu
+                            disabled={isBusy || role === ROLE_STANDARD}
+                            onClick={() => setRole(u.id, ROLE_STANDARD)}
+                          >
+                            Ustaw użytkownika
+                          </button>
 
-                        {isBusy && <span className="small text-muted">Zapisywanie…</span>}
-                      </div>
-                    </td>
-                  </tr>
-                );
-              })}
+                          {isBusy && <span className="small text-muted">Zapisywanie…</span>}
+                        </div>
+                      </td>
+                    </tr>
+                  );
+                })}
               {users.length === 0 && (
                 <tr>
                   <td colSpan="4" className="text-center text-muted py-4">

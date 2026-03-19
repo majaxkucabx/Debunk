@@ -14,11 +14,11 @@ export default function FinalizeRequest() {
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
-  const [existingArticles, setExistingArticles] = useState([]); 
-  const [addedArticles, setAddedArticles] = useState([]);       
+  const [existingArticles, setExistingArticles] = useState([]);
+  const [addedArticles, setAddedArticles] = useState([]);
   const [tempArticle, setTempArticle] = useState("");
 
-  const [sources, setSources] = useState([]); 
+  const [sources, setSources] = useState([]);
   const [newSource, setNewSource] = useState("");
 
   const [loading, setLoading] = useState(true);
@@ -105,10 +105,10 @@ export default function FinalizeRequest() {
         title: title.trim(),
         content: content.trim(),
         is_truthful: isTruthful,
-        
-        sources: cleanSources, 
-        articles: allArticles, 
-        
+
+        sources: cleanSources,
+        articles: allArticles,
+
         tag_ids: selectedCategories,
         request_id: requestId
       });
@@ -145,9 +145,9 @@ export default function FinalizeRequest() {
                   checked={selectedCategories.includes(cat.id)}
                   onChange={() => handleCheckboxChange(cat.id)}
                 />
-                <label 
-                  className="form-check-label ms-2 small text-uppercase fw-bold" 
-                  htmlFor={`cat-${cat.id}`} 
+                <label
+                  className="form-check-label ms-2 small text-uppercase fw-bold"
+                  htmlFor={`cat-${cat.id}`}
                   style={{ cursor: "pointer", userSelect: "none" }}
                 >
                   {cat.name}
@@ -202,15 +202,15 @@ export default function FinalizeRequest() {
           <label className="form-label fw-bold text-muted small text-uppercase">
             Adresy artykułów
           </label>
-          
+
           <div className="d-flex gap-2 mb-2">
-             <input 
-               className="form-control" 
-               placeholder="https://..." 
-               value={tempArticle} 
-               onChange={(e) => setTempArticle(e.target.value)} 
-             />
-             <button type="button" className="btn btn-outline-secondary" onClick={addEditorArticle}>DODAJ</button>
+            <input
+              className="form-control"
+              placeholder="https://..."
+              value={tempArticle}
+              onChange={(e) => setTempArticle(e.target.value)}
+            />
+            <button type="button" className="btn btn-outline-secondary" onClick={addEditorArticle}>DODAJ</button>
           </div>
 
           <div className="list-group">
@@ -221,7 +221,7 @@ export default function FinalizeRequest() {
                 </span>
               </div>
             ))}
-            
+
             {addedArticles.map((art, i) => (
               <div key={`new-${i}`} className="list-group-item d-flex justify-content-between align-items-center bg-white border mb-1 rounded">
                 <span className="text-truncate">{art}</span>

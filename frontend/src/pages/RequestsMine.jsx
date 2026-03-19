@@ -33,7 +33,7 @@ export default function RequestsMine() {
   const navigate = useNavigate();
   const { user, loading: userLoading } = useCurrentUser();
 
-  const [statusMode, setStatusMode] = useState("open"); 
+  const [statusMode, setStatusMode] = useState("open");
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -88,19 +88,18 @@ export default function RequestsMine() {
       {/* SEKCJA FILTRÓW - Zmniejszony odstęp od góry (mt-3) */}
       <div className="mb-4 mt-3 pt-3 border-top">
         <div className="d-flex flex-column align-items-start gap-4">
-          
+
           {/* Przełącznik statusów - wspólna ramka */}
           <div className="d-inline-flex border border-dark border-1 shadow-sm">
             {["open", "closed", "all"].map((m) => (
               <button
                 key={m}
                 type="button"
-                className={`px-3 py-2 fw-bold text-uppercase border-0 rounded-0 ${
-                  statusMode === m ? "bg-dark text-white" : "bg-white text-dark"
-                }`}
-                style={{ 
+                className={`px-3 py-2 fw-bold text-uppercase border-0 rounded-0 ${statusMode === m ? "bg-dark text-white" : "bg-white text-dark"
+                  }`}
+                style={{
                   fontSize: '0.75rem',
-                  borderRight: m !== "all" ? "1px solid #000" : "none" 
+                  borderRight: m !== "all" ? "1px solid #000" : "none"
                 }}
                 onClick={() => setStatusMode(m)}
               >
@@ -133,7 +132,7 @@ export default function RequestsMine() {
                   <div className="d-flex align-items-center gap-2">
                     <span className="fw-bold">{r.title || `Zgłoszenie #${r.id}`}</span>
                     {/* Status jako zielony napis obok tytułu bez bordera */}
-                    <span 
+                    <span
                       className={`small fw-bold text-uppercase ${closed ? "text-secondary" : "text-success"}`}
                       style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}
                     >

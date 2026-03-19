@@ -74,22 +74,19 @@ export default function RequestsUnassigned() {
 
   return (
     <div className="container-fluid px-0">
-      {/* SEKCJA FILTRÓW - Zmniejszony odstęp od góry (mt-3 zamiast mt-5) */}
       <div className="mb-4 mt-3 pt-3 border-top">
         <div className="d-flex flex-column align-items-start gap-4">
-          
-          {/* Przełącznik statusów */}
+
           <div className="d-inline-flex border border-dark border-1 shadow-sm">
             {["open", "closed", "all"].map((m) => (
               <button
                 key={m}
                 type="button"
-                className={`px-3 py-2 fw-bold text-uppercase border-0 rounded-0 ${
-                  statusMode === m ? "bg-dark text-white" : "bg-white text-dark"
-                }`}
-                style={{ 
+                className={`px-3 py-2 fw-bold text-uppercase border-0 rounded-0 ${statusMode === m ? "bg-dark text-white" : "bg-white text-dark"
+                  }`}
+                style={{
                   fontSize: '0.75rem',
-                  borderRight: m !== "all" ? "1px solid #000" : "none" 
+                  borderRight: m !== "all" ? "1px solid #000" : "none"
                 }}
                 onClick={() => setStatusMode(m)}
               >
@@ -98,7 +95,6 @@ export default function RequestsUnassigned() {
             ))}
           </div>
 
-          {/* Nagłówek sekcji - Pozostawiony duży odstęp (mt-5) */}
           <div className="mt-5">
             <h4 className="fw-bold text-uppercase mb-0">Nieprzypisane</h4>
             <div className="text-muted small">
@@ -121,7 +117,7 @@ export default function RequestsUnassigned() {
                 <div>
                   <div className="d-flex align-items-center gap-2">
                     <span className="fw-bold">{r.title || `Zgłoszenie #${r.id}`}</span>
-                    <span 
+                    <span
                       className={`small fw-bold text-uppercase ${isClosed ? "text-secondary" : "text-success"}`}
                       style={{ fontSize: '0.75rem', letterSpacing: '0.5px' }}
                     >
@@ -151,7 +147,7 @@ export default function RequestsUnassigned() {
                       >
                         Przypisz do mnie
                       </button>
-                      
+
                       <button
                         className="btn btn-sm btn-dark text-uppercase fw-bold"
                         style={{ fontSize: '0.7rem', padding: '5px 15px' }}

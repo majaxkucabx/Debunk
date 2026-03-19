@@ -12,7 +12,7 @@ export default function NewEntry() {
   const [comment, setComment] = useState("");
   const [categories, setCategories] = useState([]);
   const [selectedCategories, setSelectedCategories] = useState([]);
-  
+
   const [error, setError] = useState(null);
   const [busy, setBusy] = useState(false);
 
@@ -73,14 +73,14 @@ export default function NewEntry() {
     try {
       const payload = {
         title: title.trim(),
-        
+
         comment: comment.trim(),
         content: comment.trim(),
-        
-        articles: goodArticles, 
-        
+
+        articles: goodArticles,
+
         tag_ids: selectedCategories,
-        category_ids: selectedCategories, 
+        category_ids: selectedCategories,
       };
 
       await api.post("/api/requests/", payload);
@@ -93,11 +93,11 @@ export default function NewEntry() {
       const isSuperuser = Boolean(user?.is_superuser);
 
       navigate(isSuperuser || isEditor ? "/zgloszenia" : "/");
-      
+
     } catch (err) {
       console.error(err);
-      const msg = err?.response?.data 
-        ? JSON.stringify(err.response.data) 
+      const msg = err?.response?.data
+        ? JSON.stringify(err.response.data)
         : (err?.message || "Wystąpił błąd.");
       setError(msg);
     } finally {

@@ -4,12 +4,10 @@ import useCurrentUser from "../components/useCurrentUser.jsx";
 export default function Requests() {
   const { user, loading } = useCurrentUser();
 
-  // STYLIZACJA: Brak zaokrągleń, wspólna ramka dzięki marginLeft -1px
-  const tabClass = ({ isActive }) => 
-    `nav-link px-4 py-2 fw-bold text-uppercase rounded-0 ${
-      isActive 
-        ? "bg-dark text-white" 
-        : "bg-white text-dark"
+  const tabClass = ({ isActive }) =>
+    `nav-link px-4 py-2 fw-bold text-uppercase rounded-0 ${isActive
+      ? "bg-dark text-white"
+      : "bg-white text-dark"
     }`;
 
   const isSuperuser = Boolean(user?.is_superuser);
@@ -22,11 +20,11 @@ export default function Requests() {
   if (loading) return <div>Ładowanie...</div>;
 
   const tabs = isSuperuser
-    ? [] 
+    ? []
     : [
-        { to: "unassigned", label: "Nieprzypisane" },
-        { to: "mine", label: "Moje" },
-      ];
+      { to: "unassigned", label: "Nieprzypisane" },
+      { to: "mine", label: "Moje" },
+    ];
 
   if (!isSuperuser && !isEditor) {
     return (
@@ -45,14 +43,13 @@ export default function Requests() {
           {/* Grupa przycisków złączona w jeden blok */}
           <div className="nav d-inline-flex border border-dark border-1 shadow-sm">
             {tabs.map((t) => (
-              <NavLink 
+              <NavLink
                 key={t.to}
-                className={tabClass} 
+                className={tabClass}
                 to={t.to}
                 style={({ isActive }) => ({
                   borderRight: "1px solid #000",
                   textDecoration: "none",
-                  // Usuwamy prawą ramkę dla ostatniego elementu, żeby nie była podwójna
                   borderRight: tabs.indexOf(t) === tabs.length - 1 ? "none" : "1px solid #000"
                 })}
               >

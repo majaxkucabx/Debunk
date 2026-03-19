@@ -1,18 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { assignRequest, getRequest, unassignRequest } from "../api";
-import useCurrentUser from "../components/useCurrentUser.jsx"; // IMPORT HOOKA
+import useCurrentUser from "../components/useCurrentUser.jsx";
 
 export default function RequestDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { user } = useCurrentUser(); // POBRANIE DANYCH UŻYTKOWNIKA
+  const { user } = useCurrentUser();
 
   const [item, setItem] = useState(null);
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
 
-  // Sprawdzamy czy użytkownik jest administratorem
   const isSuperuser = Boolean(user?.is_superuser);
 
   async function load() {
@@ -76,10 +75,9 @@ export default function RequestDetails() {
 
   return (
     <div className="container py-4">
-      {/* PRZYCISK POWROTU NAD NAGŁÓWKIEM */}
       <div className="mb-4">
-        <button 
-          className="btn btn-link text-dark text-decoration-none fw-bold p-0" 
+        <button
+          className="btn btn-link text-dark text-decoration-none fw-bold p-0"
           onClick={() => navigate("/zgloszenia")}
           style={{ fontSize: '0.9rem' }}
         >
@@ -147,7 +145,6 @@ export default function RequestDetails() {
           </div>
         </div>
 
-        {/* Status */}
         <div className="mb-4">
           <strong className="text-muted small text-uppercase d-block mb-1">Status:</strong>
           <span className={`fw-bold text-uppercase ${item.closed_at ? "text-danger" : "text-success"}`}>
@@ -155,7 +152,6 @@ export default function RequestDetails() {
           </span>
         </div>
 
-        {/* WARUNKOWE RENDEROWANIE PRZYCISKÓW: Ukryte dla administratora */}
         {!isSuperuser && (
           <div className="d-flex gap-2 flex-wrap pt-3 border-top">
             <button
@@ -185,7 +181,7 @@ export default function RequestDetails() {
             )}
           </div>
         )}
-        
+
         {isSuperuser && (
           <div className="pt-3 border-top text-muted small italic">
             Tryb podglądu administratora (akcje edycji są zablokowane).

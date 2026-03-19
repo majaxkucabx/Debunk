@@ -124,7 +124,6 @@ export default function EditEntry() {
           />
         </div>
 
-        {/* ✅ RADIO zamiast checkbox */}
         <div className="mb-4">
           <label className="form-label d-block">Prawdziwość</label>
 

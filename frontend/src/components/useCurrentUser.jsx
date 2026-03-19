@@ -34,7 +34,7 @@ export default function useCurrentUser() {
 
     const handler = () => fetchUser();
     window.addEventListener(AUTH_CHANGED_EVENT, handler);
-    window.addEventListener("storage", handler); 
+    window.addEventListener("storage", handler);
 
     return () => {
       window.removeEventListener(AUTH_CHANGED_EVENT, handler);

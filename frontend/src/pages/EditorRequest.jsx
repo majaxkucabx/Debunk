@@ -12,10 +12,10 @@ export default function EditorRequest() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 
-  const [categories, setCategories] = useState([]); // [{id,name}]
+  const [categories, setCategories] = useState([]);
   const [selectedTagIds, setSelectedTagIds] = useState([]);
 
-  const [files, setFiles] = useState([]); // File[]
+  const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const [error, setError] = useState("");
@@ -115,10 +115,8 @@ export default function EditorRequest() {
     formData.append("title", t);
     formData.append("content", c);
 
-    // backend: models.JSONField, DRF zwykle przyjmie JSON-string w multipart
     formData.append("tags", JSON.stringify(selectedTagIds));
 
-    // backend serializer expects ListField(scans), więc wysyłamy wiele pól "scans"
     for (const f of files) {
       formData.append("scans", f);
     }
@@ -127,16 +125,12 @@ export default function EditorRequest() {
     try {
       await api.post("/api/applications/", formData);
       setSuccess("Prośba została wysłana ✅");
-      // możesz przekierować np. na stronę główną albo zostawić
       setTitle("");
       setContent("");
       setSelectedTagIds([]);
       setFiles([]);
-      // czyścimy input file (prosty trick: nawigacja/refresh niepotrzebna)
-      // opcjonalnie: navigate("/");
     } catch (e) {
       const data = e.response?.data;
-      // spróbujmy wyciągnąć sensowny komunikat
       if (data) {
         if (typeof data === "string") setError(data);
         else if (data.detail) setError(String(data.detail));

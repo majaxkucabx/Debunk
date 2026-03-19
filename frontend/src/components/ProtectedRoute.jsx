@@ -10,7 +10,7 @@ export default function ProtectedRoute({
   requireEditorOrSuperuser = false,
 }) {
 
-  const [status, setStatus] = useState("loading"); 
+  const [status, setStatus] = useState("loading");
   const [roleOk, setRoleOk] = useState(false);
 
   useEffect(() => {

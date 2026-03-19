@@ -41,7 +41,6 @@ function Index() {
 
   const canCreateSubmission = !!user && !isAdmin;
 
-
   const canEditEntry = (entry) => {
     if (!user) return false;
     const authorId = getAuthorId(entry);

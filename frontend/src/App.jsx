@@ -1,14 +1,11 @@
 import React from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-
 import Header from "./components/Header";
 import ProtectedRoute from "./components/ProtectedRoute";
-
 import Index from "./pages/Index";
 import Auth from "./pages/Auth.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
-
 import NewEntry from "./pages/NewEntry.jsx";
 import EditEntry from "./pages/EditEntry.jsx";
 import NotFound from "./pages/NotFound.jsx";
@@ -21,7 +18,6 @@ import RequestsAll from "./pages/RequestsAll.jsx";
 import RequestDetails from "./pages/RequestDetails.jsx";
 import RequestsIndex from "./pages/RequestsIndex.jsx";
 import FinalizeRequest from "./pages/FinalizeRequest.jsx";
-
 import EditorRequest from "./pages/EditorRequest.jsx";
 import RequestsList from "./pages/RequestsList.jsx";
 import RequestDetail from "./pages/RequestDetail.jsx";
@@ -54,17 +50,15 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
 
-                    {/* --- POPRAWKA: Nowy adres dla prośby o redaktora --- */}
-                    <Route 
-                      path="/editor-request" 
+                    <Route
+                      path="/editor-request"
                       element={
                         <ProtectedRoute>
                           <EditorRequest />
                         </ProtectedRoute>
-                      } 
+                      }
                     />
 
-                    {/* --- Detale zgłoszeń --- */}
                     <Route
                       path="/zgloszenia/:id"
                       element={
@@ -82,8 +76,7 @@ function App() {
                         </ProtectedRoute>
                       }
                     />
-                    
-                    {/* --- Dodawanie nowego zgłoszenia (artykułu do sprawdzenia) --- */}
+
                     <Route
                       path="/submissions/new"
                       element={
@@ -93,7 +86,6 @@ function App() {
                       }
                     />
 
-                    {/* --- PANEL REDAKTORSKI --- */}
                     <Route
                       path="/zgloszenia"
                       element={
@@ -105,17 +97,15 @@ function App() {
                       <Route index element={<RequestsIndex />} />
                       <Route path="unassigned" element={<RequestsUnassigned />} />
                       <Route path="mine" element={<RequestsMine />} />
-                      <Route 
-                        path="all" 
+                      <Route
+                        path="all"
                         element={
                           <ProtectedRoute requireSuperuser>
                             <RequestsAll />
                           </ProtectedRoute>
-                        } 
+                        }
                       />
                     </Route>
-
-                    {/* --- ADMIN: Prośby o rangę --- */}
                     <Route
                       path="/prosby"
                       element={

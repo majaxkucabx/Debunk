@@ -92,10 +92,10 @@ export default function Header() {
 
           {loggedIn ? (
             <div className="ms-auto d-flex align-items-center" ref={menuRef}>
-              
+
               {canRequestEditor && (
-                <Link 
-                  to="/editor-request" 
+                <Link
+                  to="/editor-request"
                   className="nav-link-custom me-4 d-flex align-items-center"
                   style={{ whiteSpace: "nowrap" }}
                 >
@@ -115,7 +115,7 @@ export default function Header() {
                   </Link>
                 </>
               )}
-              
+
               {canSeeRequests && (
                 <Link to="/zgloszenia" className="nav-link-custom me-4">
                   Zgłoszenia
